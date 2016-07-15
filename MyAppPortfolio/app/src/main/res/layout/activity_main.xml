@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.udacity.ramanujam.myappportfolio.MainActivity"
+    android:orientation="vertical"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/my_nanodegree_apps"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/popular_movies"
+            android:id="@+id/popularMoviesButton"
+            android:layout_gravity="center_horizontal"
+            android:background="#2E3D49"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/activity_vertical_padding"
+            android:onClick="getPopularMovies"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/stock_hawk"
+            android:id="@+id/stockHawkButton"
+            android:layout_gravity="center_horizontal"
+            android:background="#2E3D49"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/activity_vertical_padding"
+            android:onClick="getStockHawk"/>
+
+
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/build_it_bigger"
+            android:id="@+id/buildItBiggerButton"
+            android:layout_gravity="center_horizontal"
+            android:background="#2E3D49"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/activity_vertical_padding"
+            android:onClick="buildItBigger"/>
+
+
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/make_your_app_material"
+            android:id="@+id/makeYourAppMaterialButton"
+            android:layout_gravity="center_horizontal"
+            android:background="#2E3D49"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/activity_vertical_padding"
+            android:onClick="makeYourAppMaterial"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/go_ubiquitous"
+            android:id="@+id/goUbiquitousButton"
+            android:layout_gravity="center_horizontal"
+            android:background="#2E3D49"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/activity_vertical_padding"
+            android:onClick="goUbiquitous"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/capstone"
+            android:id="@+id/capstoneButton"
+            android:layout_gravity="center_horizontal"
+            android:background="#2E3D49"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/activity_vertical_padding"
+            android:onClick="getCapstone"/>
+
+</LinearLayout>
