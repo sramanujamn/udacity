@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="buttonTheme" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#2E3D49</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_padding</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
 </resources>
