@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PopularMovies</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_settings">Settings</string>
+    <string name="pref_sortby_label">Sort by</string>
+    <string name="pref_sortby_key">sorting</string>
+    <string name="pref_sortby_value">1</string>
+
+    <string-array name="sortByKeys">
+        <item>Most Popular</item>
+        <item>Top Rated</item>
+    </string-array>
+
+    <string-array name="sortByValues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_movie_detail_activity">Movie Details</string>
+
+    <!-- Strings related to Settings -->
+
+</resources>
