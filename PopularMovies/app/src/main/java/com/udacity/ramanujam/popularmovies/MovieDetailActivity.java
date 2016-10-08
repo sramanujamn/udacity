@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-//public class MovieDetailActivity extends AppCompatActivity implements MovieDetailFragment.OnFragmentInteractionListener {
 public class MovieDetailActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = MovieDetailActivity.class.getSimpleName();
@@ -23,16 +22,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                     .commit();
         }
 
-        //if(getSupportActionBar() != null) {
-          getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //}
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    /*
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-        Log.i(LOG_TAG, "Reached inside onFragmentInteraction");
-
-
-    }*/
 }

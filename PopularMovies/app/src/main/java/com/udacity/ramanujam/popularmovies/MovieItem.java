@@ -3,9 +3,7 @@ package com.udacity.ramanujam.popularmovies;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by padmavidhya on 9/19/2016.
- */
+
 public class MovieItem implements Parcelable {
 
     private String imageUrl;

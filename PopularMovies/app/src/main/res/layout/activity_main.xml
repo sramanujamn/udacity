@@ -26,9 +26,5 @@
         tools:context="com.udacity.ramanujam.popularmovies.MainActivity"
         >
 
-    <!-- <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" /> -->
 </FrameLayout>
 </RelativeLayout>

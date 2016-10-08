@@ -5,7 +5,6 @@
     tools:context=".PopularMoviesFragment"
 >
 
-    <!-- TODO: Update blank fragment layout -->
     <GridView
         android:id="@+id/moviesGridView"
         android:layout_width="match_parent"
