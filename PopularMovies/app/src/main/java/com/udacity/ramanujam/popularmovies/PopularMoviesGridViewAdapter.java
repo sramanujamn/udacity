@@ -37,8 +37,6 @@ public class PopularMoviesGridViewAdapter extends ArrayAdapter<MovieItem> {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        Log.i(LOG_TAG, "Reached getView()");
-        //View row = view;
         MoviesViewHolder holder;
 
         if(view == null) {
@@ -56,8 +54,6 @@ public class PopularMoviesGridViewAdapter extends ArrayAdapter<MovieItem> {
 
         MovieItem movieItem = popularMoviesGrid.get(position);
         holder.movieTitle.setText(movieItem.getTitle());
-        Log.i(LOG_TAG, "Movie Title: " + movieItem.getTitle());
-        Log.i(LOG_TAG, "Movie Image: " + movieItem.getImageUrl());
         Picasso.with(context).load(movieItem.getImageUrl()).into(holder.movieImage);
         return view;
     }

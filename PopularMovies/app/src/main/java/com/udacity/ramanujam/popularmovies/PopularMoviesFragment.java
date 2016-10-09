@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,13 +32,13 @@ public class PopularMoviesFragment extends Fragment {
     private PopularMoviesGridViewAdapter popularMoviesGridViewAdapter;
     private ArrayList<MovieItem> popularMoviesDataGrid;
     private GridView popularMoviesGridView;
+    private String sortPreference;
+    private SharedPreferences sharedPreferences;
 
     public PopularMoviesFragment() {
-        // Required empty public constructor
     }
 
 
-    // TODO: Rename and change types and number of parameters
     public static PopularMoviesFragment newInstance() {
         PopularMoviesFragment fragment = new PopularMoviesFragment();
         Bundle args = new Bundle();
@@ -50,6 +49,10 @@ public class PopularMoviesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sortPreference = sharedPreferences.getString(getString(R.string.pref_sortby_key),
+                getString(R.string.pref_sortby_value));
+
     }
 
     @Override
@@ -71,8 +74,6 @@ public class PopularMoviesFragment extends Fragment {
         popularMoviesGridViewAdapter = new PopularMoviesGridViewAdapter(getActivity(), R.layout.fragment_popular_movies, popularMoviesDataGrid);
         popularMoviesGridView.setAdapter(popularMoviesGridViewAdapter);
 
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_popular_movies_main, container, false);
         updateMovies();
         return rootView;
     }
@@ -97,7 +98,7 @@ public class PopularMoviesFragment extends Fragment {
 
             BufferedReader reader = null;
 
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             String preferredUrl = sharedPreferences.getString(getString(R.string.pref_sortby_key),
                     getString(R.string.pref_sortby_value));
 
@@ -108,8 +109,6 @@ public class PopularMoviesFragment extends Fragment {
                         .appendQueryParameter(API_KEY_PARAM, API_KEY)
                         .build();
                 URL url = new URL(uri.toString());
-                Log.i(LOG_TAG, "URL formed: " + uri.toString());
-                Log.i(LOG_TAG, "PrefURL" + preferredUrl +", pref_sortby_value" + R.string.pref_sortby_value);
                 httpURLConnection = (HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.connect();
@@ -137,7 +136,6 @@ public class PopularMoviesFragment extends Fragment {
 
                 popularMoviesDataGrid = populateMovieDataFromJson(stringBuilder.toString());
                 result = 1;
-                //return stringBuilder.toString();
             } catch(Exception e) {
                 Log.e(LOG_TAG, "Error: ", e);
             } finally {
@@ -164,19 +162,12 @@ public class PopularMoviesFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Integer result) {
-            //if(result == 1) {
-                //popularMoviesGridViewAdapter.clear();
-                //for(MovieItem movieItem : moviesGrid) {
-                //    popularMoviesGridViewAdapter.add(movieItem);
-                //}
-                Log.i(LOG_TAG, "Reached onPostExecute()" + popularMoviesDataGrid.size());
+            if(popularMoviesDataGrid.size() > 0) {
+
                 popularMoviesGridViewAdapter = new PopularMoviesGridViewAdapter(getActivity(), R.layout.fragment_popular_movies, popularMoviesDataGrid);
 
                 popularMoviesGridView.setAdapter(popularMoviesGridViewAdapter);
-                //popularMoviesGridViewAdapter.setGridData(popularMoviesDataGrid);
-                //popularMoviesGridView.setAdapter(popularMoviesGridViewAdapter);
-                Log.i(LOG_TAG, "Testing: " + popularMoviesDataGrid.get(1).getImageUrl());
-            //}
+            }
         }
     }
 
@@ -220,7 +211,11 @@ public class PopularMoviesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        //updateMovies();
+        String newSortPreference = sharedPreferences.getString(getString(R.string.pref_sortby_key), getString(R.string.pref_sortby_value));
+        if(!sortPreference.equals(newSortPreference)) {
+            sortPreference = newSortPreference;
+            updateMovies();
+        }
     }
 
 }

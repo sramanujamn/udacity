@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.container, new PopularMoviesFragment().newInstance())
                     .commit();
         }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

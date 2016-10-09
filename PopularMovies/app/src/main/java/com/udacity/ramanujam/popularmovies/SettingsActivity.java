@@ -51,6 +51,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity implements Pre
                 preference.setSummary(stringValue);
             }
         }
+
         return true;
     }
 }

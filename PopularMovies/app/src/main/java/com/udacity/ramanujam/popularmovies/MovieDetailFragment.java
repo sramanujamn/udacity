@@ -2,6 +2,7 @@ package com.udacity.ramanujam.popularmovies;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.udacity.ramanujam.popularmovies.databinding.FragmentMovieDetailBinding;
 
 import org.w3c.dom.Text;
 
@@ -41,11 +43,12 @@ public class MovieDetailFragment extends Fragment {
         MovieItem movieItemParcel = null;
         if(intent != null) {
             movieItemParcel = (MovieItem) intent.getParcelableExtra("movie");
-            ImageView movieImage = (ImageView)rootView.findViewById(R.id.movieImage);
-            ((TextView)rootView.findViewById(R.id.movieTitle)).setText(movieItemParcel.getTitle());
-            ((TextView)rootView.findViewById(R.id.movieRating)).setText(new Double(movieItemParcel.getUserRating()).toString() + "/10");
-            ((TextView)rootView.findViewById(R.id.movieReleaseDate)).setText(movieItemParcel.getReleaseDate());
-            ((TextView)rootView.findViewById(R.id.movieSynopsis)).setText(movieItemParcel.getSynopsis());
+            FragmentMovieDetailBinding binding = DataBindingUtil.bind(rootView);
+            binding.movieTitle.setText(movieItemParcel.getTitle());
+            binding.movieRating.setText(new Double(movieItemParcel.getUserRating()).toString() + "/10");
+            binding.movieReleaseDate.setText(movieItemParcel.getReleaseDate());
+            binding.movieSynopsis.setText(movieItemParcel.getSynopsis());
+            ImageView movieImage = binding.movieImage;
             Picasso.with(getContext()).load(movieItemParcel.getImageUrl()).into(movieImage);
         }
 
